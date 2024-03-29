@@ -36,7 +36,7 @@ public class CustomerController extends HttpServlet {
 		dao = new CustomerDAO();
 		ctx = getServletContext();
 	}
-	
+
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,6 +53,7 @@ public class CustomerController extends HttpServlet {
 		case "/edit": site = getViewForEdit(request); break;
 		case "/update": site = updateCustomer(request); break;		
 		case "/delete": site = deleteCustomer(request); break;
+		case "/search": site = searchCustomer(request); break;
 		}
 		
 		if(site.startsWith("redirect:/")) {
@@ -224,4 +225,34 @@ public class CustomerController extends HttpServlet {
 		
 		return fileName;
 	}
+
+
+	//[추가] search 관련
+	public String searchCustomer(HttpServletRequest request) {
+		String name = request.getParameter("name");
+		
+		try {
+			Customer customer = dao.getViewForSearch(name);
+			
+			if((customer.getName() == null || customer.getName().equals("")) && customer.getId() == 0) {
+				String encodeName = URLEncoder.encode("정상적으로 검색되지 않았습니다.", "UTF-8");
+				return "redirect:/index?error=" + encodeName;
+			} 
+			request.setAttribute("customer", customer);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			try {
+				String encodeName = URLEncoder.encode("정상적으로 검색되지 않았습니다.", "UTF-8");
+				return "redirect:/index?error=" + encodeName;
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+		}
+		
+		return "view.jsp";
+	}
+
+
 }

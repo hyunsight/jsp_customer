@@ -147,6 +147,37 @@ public class CustomerDAO {
 			}
 		}		
 	}
+
+
+	//[추가] 고객 검색하는 메소드 (이름 이용)
+	public Customer getViewForSearch(String name) throws Exception {
+		Connection conn = open();
+		Customer customer = new Customer();
+		
+		String sql = "SELECT id, name, address, phone, gender, age, img, point, grade, to_char(reg_date, 'yyyy.mm.dd') reg_date FROM CUSTOMER WHERE name = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, name);
+		ResultSet rs = pstmt.executeQuery();
+	
+		try(conn; pstmt; rs) {
+			while(rs.next()) {
+					customer.setId(rs.getInt("id"));
+					customer.setName(rs.getString("name"));
+					customer.setAddress(rs.getString("address"));
+					customer.setPhone(rs.getString("phone"));
+					customer.setGender(rs.getString("gender"));
+					customer.setAge(rs.getInt("age"));
+					customer.setImg(rs.getString("img"));
+					customer.setPoint(rs.getInt("point"));
+					customer.setGrade(rs.getString("grade"));	
+					customer.setReg_date(rs.getString("reg_date"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return customer;
+	}	
 	
 }
 

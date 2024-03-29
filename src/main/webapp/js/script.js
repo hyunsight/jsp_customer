@@ -41,3 +41,12 @@ function chkDelete(id) {
 		return false;	
 	}
 }
+
+
+//검색 관련
+function search() {
+	let input = document.querySelector(".wrap_index input")
+	
+	let url = location.origin;
+	location.href = url + "/jsp_customer/search?name=" + input.value;
+}

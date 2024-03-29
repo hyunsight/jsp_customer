@@ -83,6 +83,26 @@ body {
 
 /* index.jsp */
 
+.wrap_index .customer_search {
+	padding-top: 2rem;
+	padding-right: 1.6rem;
+}
+
+.wrap_index .customer_search input {
+	font-size: 1.1rem;	
+}
+
+.wrap_index .customer_search input::placeholder {
+	color: #aeb6b8;
+}
+
+.wrap_index .customer_search button {
+	border: none;
+	font-size: 1.1rem;	
+	color: white;
+	background-color: #0085ad;
+}
+
 .customer_list {
 	width: 100%;
 	border-top: 1px solid #aeb6b8;

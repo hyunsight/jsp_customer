@@ -18,16 +18,28 @@
 	<link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-	<div class="wrap">
+	<div class="wrap wrap_index">
 		<div class="container">
-			<h1>
-				<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-people-fill" viewBox="0 2 16 15" style="color: #48a9c5">
-  					<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-				</svg>&nbsp;
-				<span>고객 관리</span>
-			</h1>
-			<br />
+			<div class="row">
+				<div class="col-8">
+					<h1>
+						<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-people-fill" viewBox="0 2 16 15" style="color: #48a9c5">
+  							<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+						</svg>&nbsp;
+						<span>고객 관리</span>
+					</h1>
+				</div>
 
+				<!-- 검색 기능 -->
+				<div class="col-4 customer_search">
+					<div class="input-group mb-3">	
+  						<input type="text" class="form-control" name="search" placeholder="이름 입력" aria-label="search" aria-describedby="button-addon2">
+  						<button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="search()">검색</button>
+					</div>
+				</div>
+			</div>
+			<br />
+						
 			<!-- 테이블 -->
 			<table class="row customer_list">
 				<thead>

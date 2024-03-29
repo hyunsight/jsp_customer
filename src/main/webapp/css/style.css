@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+/* 초기화 태그 */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 1rem;
+}
+
+ul, li {
+	list-style: none; 
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+
+
+/* 공통 jsp */
+body {
+	background-color: #f3f4f7;
+}
+
+.wrap {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.wrap .container h1 {
+	margin: 1.5rem 0 1rem 0;
+}
+
+.bt_wrap {
+	margin-top: 1.8rem;
+	margin-bottom: 1.8rem;
+	text-align: center;
+	font-size: 0;
+}
+
+.bt_wrap a {
+	display: inline-block;
+	min-width: 1.5vw;
+	padding: 0.5rem 2rem;
+	border-radius: 0.5rem;
+	color: white;
+	font-size: 1.1rem;
+	text-align: center;
+	background-color: #48a9c5;
+}
+
+.bt_wrap a:not(:first-child) {
+	margin-left: 0.5rem;
+}
+
+.bt_wrap a:hover {
+	background-color: #0085ad;
+}
+
+/* .bt_wrap a.on { 
+	background: #000;
+	color: #fff;
+} */
+
+
+
+/* index.jsp */
+.customer_list {
+	width: 100%;
+	border-top: 1px solid #aeb6b8;
+	border-collapse: collapse;
+}
+
+.customer_list th {
+	padding: 0.6rem;
+	border-bottom: 1px solid #aeb6b8;
+	text-align: center;
+	font-size: 1.1rem;
+	background-color: #e3f1f8;
+}
+
+.customer_list td {
+	padding: 0.6rem;
+	border-bottom: 1px dotted #d7dcdd;
+	font-size: 1rem;
+	text-align: center;
+	background-color: #fafafa;
+}
+
+.customer_list td.list__name {
+	color: #2292a7;	
+}
+
+.customer_list td.list__name a:hover {
+	font-weight: bold;
+}
+
+.bt_page {
+	margin-top: 1.2rem;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.bt_page a {
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	box-sizing: border-box;
+	line-height: 1.5rem;
+	color: gray;
+}
+
+.bt_page a:hover {
+	text-decoration: underline;
+}
+
+.bt_page a.bt {
+	font-size: 0.8rem;
+	letter-spacing: -1px;
+}
+
+.bt_page a.num {
+	font-size: 1rem;
+}
+
+.bt_page a.num.on {
+	border-color: #8db9ca;
+	border-radius: 1rem;
+	color: #fff;
+	background: #8db9ca;
+}
+
+
+
+
+
+
+
+

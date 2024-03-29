@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-	<div class="wrap">
+	<div class="wrap wrap_view">
 		<div class="container">
 			<h1>
 				<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill" viewBox="0 2 16 15" style="color: #48a9c5">
@@ -27,39 +27,75 @@
 				<span>고객 정보</span>
 			</h1>
 			<div class="card mb-3">
-  				<div class="row g-0">
-   					<div class="col-md-4">
-    					<img src="./Temp${customer.img}" class="img-fluid rounded-start" h-50 alt="이미지">
+  				<div class="row g-5">
+   					<div class="col-md-3">
+    					<img src="./Temp${customer.img}" class="img-fluid h-100 rounded-start" width="250" height="250" alt="이미지">
    					</div>
-    				<div class="col-md-8">
+    				<div class="col-md-9">
      					 <div class="card-body">
      	  					<div class="info" style="position: relative;">
-								<dl>
-									<dt>이름</dt>
-									<dd>${customer.name}</dd>
-								</dl>
-								<dl>
-									<dt>성별</dt>
-									<dd>${customer.gender}</dd>
-								</dl>
-								<dl>
-									<dt>휴대폰</dt>
-									<dd>${customer.phone}</dd>
-								</dl>
-								<dl>
-									<dt>나이</dt>
-									<dd>${customer.age}</dd>
-								</dl>
-								<dl>
-									<dt>주소</dt>
-									<dd>${customer.address}</dd>
-								</dl>
+     	  						<div class="row info_details1">
+			    					<div class="col-2">     	  					
+										<dl>
+											<dt>이름</dt>
+										</dl>
+								    </div>
+			    					<div class="col-4">     	  					
+										<dl>
+											<dd>${customer.name}</dd>
+										</dl>
+								    </div>								    
+			    					<div class="col-2">     	  					
+										<dl>
+											<dt>나이</dt>
+										</dl>									    
+								    </div>
+			    					<div class="col-4">     	  					
+										<dl>
+											<dd>${customer.age}</dd>
+										</dl>
+								    </div>									    								    
+  								</div>
+     	  						<div class="row info_details1">
+			    					<div class="col-2">    	
+										<dl>
+											<dt>휴대폰</dt>
+										</dl>				    					
+								    </div>
+			    					<div class="col-4">    	
+										<dl>
+											<dd>${customer.phone}</dd>
+										</dl>				    					
+								    </div>	
+			    					<div class="col-2">     	  					
+										<dl>
+											<dt>성별</dt>
+										</dl>									    
+								    </div>
+			    					<div class="col-4">     	  					
+										<dl>
+											<dd>${customer.gender}</dd>
+										</dl>									    
+								    </div>								    				    							    
+  								</div>			    												
+     	  						<div class="row info_details1">
+ 			    					<div class="col-2">     	  					
+										<dl>
+											<dt>주소</dt>
+										</dl>									    
+								    </div>
+								    <div class="col-10">     	  					
+										<dl>								    
+											<dd>${customer.address}</dd>	
+										</dl>								    
+								    </div>		
+  								</div>	
 							</div>
 					     </div>
     				</div>
   				</div>
 			</div>
-  			<div class="row text-center">
+  			<div class="row text-center info_details2">
 			    <div class="col">
       				<dl>
 						<dt>포인트</dt>
@@ -81,7 +117,7 @@
   			</div>
 			<div class="bt_wrap">
 				<a href="index" class="on">목록</a>
-				<a href="edit?board_no=">수정</a>
+				<a href="edit?id=${customer.id}">수정</a>
 				<a class="bt delete" onclick="chkDelete(${customer.id}); return false;">삭제</a>
 			</div>
 		</div>

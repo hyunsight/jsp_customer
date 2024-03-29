@@ -50,8 +50,8 @@ public class CustomerController extends HttpServlet {
 		case "/view": site = getView(request); break;
 		case "/register": site = "register.jsp"; break;		
 		case "/insert": site = insertCustomer(request); break;
-		case "/edit": break;
-		case "/update": break;		
+		case "/edit": site = getViewForEdit(request); break;
+		case "/update": site = updateCustomer(request); break;		
 		case "/delete": site = deleteCustomer(request); break;
 		}
 		
@@ -134,6 +134,64 @@ public class CustomerController extends HttpServlet {
 		return "redirect:/index";
 	}
 	
+	
+	//edit 관련
+	public String getViewForEdit(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		try {
+			Customer customer = dao.getView(id);
+			request.setAttribute("customer", customer);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "edit.jsp";
+	}
+
+	
+	public String updateCustomer(HttpServletRequest request) {
+		Customer customer = new Customer();
+		String origin_file = request.getParameter("origin_file");
+		
+		try {
+			BeanUtils.populate(customer, request.getParameterMap());
+			
+			//파일 처리
+			Part part = request.getPart("file");
+			String fileName = getFileName(part);
+
+			if(fileName != null && !fileName.isEmpty()) {
+				part.write(fileName);
+				
+				customer.setImg("/img/" + fileName);
+			} else {
+				if (origin_file == null || origin_file.equals("")) {
+					customer.setImg(null);
+				} else {
+					customer.setImg(origin_file);
+				}
+			}
+			
+			dao.updateCustomer(customer);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			//한글 깨짐 처리
+			try {
+				String encodeName = URLEncoder.encode("정상적으로 등록되지 않았습니다.", "UTF-8");
+				return "redirect:/index?error=" + encodeName;
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+		}
+		
+		return "redirect:/view?id=" + customer.getId();
+	}
+	
+	
+	//delete 관련	
 	public String deleteCustomer(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		

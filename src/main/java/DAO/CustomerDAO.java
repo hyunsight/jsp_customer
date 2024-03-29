@@ -107,6 +107,31 @@ public class CustomerDAO {
 	}
 	
 	
+	//고객 정보 수정하는 메소드
+	public void updateCustomer(Customer customer) throws Exception {
+		Connection conn = open();
+		
+		String sql = "UPDATE CUSTOMER SET name=?, address=?, phone=?, gender=?, age=?, img=?, point=?, grade=? WHERE id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		try(conn; pstmt) {
+			pstmt.setString(1, customer.getName());
+			pstmt.setString(2, customer.getAddress());
+			pstmt.setString(3, customer.getPhone());
+			pstmt.setString(4, customer.getGender());	
+			pstmt.setInt(5, customer.getAge());
+			pstmt.setString(6, customer.getImg());
+			pstmt.setInt(7, customer.getPoint());
+			pstmt.setString(8, customer.getGrade());
+			pstmt.setInt(9, customer.getId());
+			
+			if(pstmt.executeUpdate() != 1) {
+				throw new Exception("수정된 글이 없습니다.");
+			}
+		}
+	}
+	
+	
 	//고객 삭제하는 메소드
 	public void deleteCustomer(int id) throws Exception {
 		Connection conn = open();

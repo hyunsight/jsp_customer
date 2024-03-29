@@ -1,6 +1,31 @@
 function chkForm() {
 	let f = document.frm;
 	
+	if(f.name.value == '') {
+		alert("이름을 입력해주세요.")
+		return false;
+	}
+	
+	if(f.phone.value == '') {
+		alert("휴대폰을 입력해주세요.")
+		return false;
+	}
+	
+	if(f.address.value == '') {
+		alert("주소를 입력해주세요.")
+		return false;
+	}	
+	
+	if(f.grade.value == "null") {
+		alert("등급을 입력해주세요.")
+		return false;
+	}
+	
+	if(f.point.value == '') {
+		alert("포인트를 입력해주세요.")
+		return false;
+	}			
+	
 	return f.submit();
 }
 

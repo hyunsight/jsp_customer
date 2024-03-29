@@ -24,6 +24,7 @@ a {
 
 
 /* 공통 jsp */
+
 body {
 	background-color: #f3f4f7;
 }
@@ -63,6 +64,16 @@ body {
 	background-color: #0085ad;
 }
 
+.bt_wrap .delete, 
+.bt_wrap .cancle {
+	background-color: #ff4f81;
+}
+
+.bt_wrap .delete:hover,
+.bt_wrap .cancle:hover {
+	background-color: #ea1d5d;
+}
+
 /* .bt_wrap a.on { 
 	background: #000;
 	color: #fff;
@@ -71,6 +82,7 @@ body {
 
 
 /* index.jsp */
+
 .customer_list {
 	width: 100%;
 	border-top: 1px solid #aeb6b8;
@@ -100,6 +112,11 @@ body {
 .customer_list td.list__name a:hover {
 	font-weight: bold;
 }
+
+.customer_list td.list__management a {
+	padding: 0 0.7rem;
+}
+
 
 .bt_page {
 	margin-top: 1.2rem;
@@ -139,8 +156,86 @@ body {
 
 
 
+/* view.jsp */
+
+.wrap_view .card {
+	margin-top: 2.2rem;
+	background-color: #fafafa;
+}
+
+.info_details1 {
+	min-height: 6rem;
+	line-height: 6rem;
+	padding-left: 3rem;
+}
+
+.info_details1:not(:last-child) {
+	border-bottom: 1px dotted #d7dcdd;
+}
+
+.info_details1 dt {
+	font-size: 1.1rem;
+}
+
+.info_details1 dd {
+	font-size: 1.2rem;
+}
+
+.info_details2 {
+	height: 5rem;
+	margin: 3rem 0 3rem 0;
+}
+
+.info_details2 dt {
+	color: #2292a7;	
+	font-size: 1.1rem;	
+	background-color: #e3f1f8;
+	padding: 0.5rem 0;
+}
+
+.info_details2 dd {
+	font-size: 1.2rem;	
+	background-color: #fafafa;
+	padding: 0.5rem 0;
+}
 
 
 
+/* register.jsp, edit.jsp */
 
+.wrap_write .col-md-9 {
+	margin-top: 2rem;
+}
 
+.wrap_write .col-md-9 .row {
+	min-height: 3.3rem;
+}
+
+.wrap_write .col-md-9 label:not(.form-check-label) {
+	font-size: 1.1rem;	
+	font-weight: bold;
+}
+
+.wrap_write .col-md-9 .frm_required {
+	color: #2292a7;	
+}
+
+.wrap_write .col-md-9 input:not(#inputFile),
+.wrap_write .col-md-9 .form-check-label,
+.wrap_write .col-md-9 .form-select {
+	font-size: 1.2rem;	
+}
+
+.wrap_write .col-md-9 .form-check {
+	padding-top: 0.5rem;
+}
+
+.wrap_write .col-md-9 #inputFile {
+	padding-top: 0.3rem;
+	font-size: 1.1rem;
+	color: gray;
+}
+
+.wrap_write.col-md-9 input::placeholder {
+	color: #aeb6b8;
+}

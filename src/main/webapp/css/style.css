@@ -103,6 +103,10 @@ body {
 	background-color: #0085ad;
 }
 
+.wrap_index .customer_search #button-addon2 {
+	width: 4.7rem;
+}
+
 .customer_list {
 	width: 100%;
 	border-top: 1px solid #aeb6b8;

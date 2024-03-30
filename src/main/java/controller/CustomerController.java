@@ -235,7 +235,7 @@ public class CustomerController extends HttpServlet {
 			Customer customer = dao.getViewForSearch(name);
 			
 			if((customer.getName() == null || customer.getName().equals("")) && customer.getId() == 0) {
-				String encodeName = URLEncoder.encode("정상적으로 검색되지 않았습니다.", "UTF-8");
+				String encodeName = URLEncoder.encode("없는 이름입니다.", "UTF-8");
 				return "redirect:/index?error=" + encodeName;
 			} 
 			request.setAttribute("customer", customer);
@@ -244,7 +244,7 @@ public class CustomerController extends HttpServlet {
 			e.printStackTrace();
 
 			try {
-				String encodeName = URLEncoder.encode("정상적으로 검색되지 않았습니다.", "UTF-8");
+				String encodeName = URLEncoder.encode("없는 이름입니다.", "UTF-8");
 				return "redirect:/index?error=" + encodeName;
 			} catch (UnsupportedEncodingException e1) {
 				e1.printStackTrace();
